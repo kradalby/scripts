@@ -20,42 +20,15 @@ if [[ $EUID -ne 0 ]]; then
     fi
 fi
 
-# Written by a awesome person from dotKom
-function progress() {
-    if $VERBOSE
-    then
-        $@
-    else
-        cmd="$@"
-        $@ &> /dev/null &
-        pid=$!
-        spinner='-\|/'
-
-        i=0
-        while kill -0 $pid &> /dev/null
-        do
-            i=$(( (i+1) %4 ))
-            printf "\r\t%-${LJUST_COLS}.${LJUST_COLS}s %${RJUST_COLS}s" "${cmd}" "[ ${spinner:$i:1}${spinner:$i:1} ]"
-            sleep .1
-        done
-
-        if [ $? -ne 0 ]
-        then
-            echo "return code $?";
-        fi
-        printf "\r\t%-${LJUST_COLS}.${LJUST_COLS}s %${RJUST_COLS}s\n" "${cmd}" "[ OK ]"
-    fi
-}
-
 function update() {
     echo "Updating repositories and OS"
-    progress $SUDO apt-get update
-    progress $SUDO apt-get dist-upgrade -y 
+    $SUDO apt-get update
+    $SUDO apt-get dist-upgrade -y 
 }
 
 function install_packages() {
     echo "Installing packages from apt"
-    progress $SUDO apt-get install -y \
+    $SUDO apt-get install -y \
         tmux vim-nox python python3 git \
         htop zsh python-dev python-setuptools \
         ntp tree ncdu ack
@@ -63,25 +36,25 @@ function install_packages() {
 
 function install_ohzsh() {
     echo "Installing Oh My ZSH for this user"
-    progress curl -L http://install.ohmyz.sh | sh
+    curl -L http://install.ohmyz.sh | sh
     
     if [[ $EUID -ne 0 ]]; then
         echo "Installing Of My ZSH for root"
-        progress $SUDO su -c curl -L http://install.ohmyz.sh | sh
+        $SUDO su -c curl -L http://install.ohmyz.sh | sh
     fi
 }
 
 function install_dotfiles() {
     echo "Installing dotfiles"
     mkdir ~/git
-    progress git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles
-    progress ~/git/dotfiles/deploy.sh
+    git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles
+    ~/git/dotfiles/deploy.sh
 
     
     if [[ $EUID -ne 0 ]]; then
         echo "Installing dotfiles for root"
-        progress $SUDO su -c "git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles"
-        progress $SUDO su -c "~/git/dotfiles/deploy.sh"
+        $SUDO su -c "git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles"
+        $SUDO su -c "~/git/dotfiles/deploy.sh"
     fi
 }
 
