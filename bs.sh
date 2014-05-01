@@ -6,7 +6,7 @@
 # on a newly installed Debian linux server.
 
 # Usage:
-# curl http://kradalby.no/bs.sh | sh
+# curl -k http://kradalby.no/bs.sh | bash
 
 SUDO=''
 
