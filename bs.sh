@@ -85,4 +85,8 @@ function install_dotfiles() {
     fi
 }
 
+update
+install_packages
+install_ohzsh
+install_dotfiles
 
