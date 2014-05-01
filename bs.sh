@@ -65,7 +65,7 @@ function install_ohzsh() {
     echo "Installing Oh My ZSH for this user"
     progress curl -L http://install.ohmyz.sh | sh
     
-    if [[ $EUID -ne 0]]; then
+    if [[ $EUID -ne 0 ]]; then
         echo "Installing Of My ZSH for root"
         progress $SUDO su -c curl -L http://install.ohmyz.sh | sh
     fi
