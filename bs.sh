@@ -78,7 +78,7 @@ function install_dotfiles() {
     progress ~/git/dotfiles/deploy.sh
 
     
-    if [[ $EUID -ne 0]]; then
+    if [[ $EUID -ne 0 ]]; then
         echo "Installing dotfiles for root"
         progress $SUDO su -c "git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles"
         progress $SUDO su -c "~/git/dotfiles/deploy.sh"
