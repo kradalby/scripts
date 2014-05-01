@@ -67,9 +67,22 @@ function install_ohzsh() {
     
     if [[ $EUID -ne 0]]; then
         echo "Installing Of My ZSH for root"
-        sudo su -c curl -L http://install.ohmyz.sh | sh
+        progress $SUDO su -c curl -L http://install.ohmyz.sh | sh
     fi
 }
 
+function install_dotfiles() {
+    echo "Installing dotfiles"
+    mkdir ~/git
+    progress git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles
+    progress ~/git/dotfiles/deploy.sh
+
+    
+    if [[ $EUID -ne 0]]; then
+        echo "Installing dotfiles for root"
+        progress $SUDO su -c "git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles"
+        progress $SUDO su -c "~/git/dotfiles/deploy.sh"
+    fi
+}
 
 
