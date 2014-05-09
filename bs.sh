@@ -58,6 +58,12 @@ function install_dotfiles() {
     fi
 }
 
+function change_repos() {
+    echo "Changing repositories from main to main contrib non-free"
+    $SUDO sed -i s/main/main contrib non-free/g /etc/apt/sources.list
+}
+
+change_repos
 update
 install_packages
 install_ohzsh
