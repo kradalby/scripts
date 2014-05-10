@@ -63,9 +63,16 @@ function change_repos() {
     $SUDO sed -i s/main/main contrib non-free/g /etc/apt/sources.list
 }
 
+function create_motd() {
+    echo "Creating motd"
+    curl --compressed "http://www.lemoda.net/games/figlet/figlet.cgi?text=$(hostname)&font=puffy&width=80" > /etc/motd
+    echo "This server was bootstrapped with bs.sh (kradalby.no/bs.sh)" >> /etc/motd
+}
+
 change_repos
 update
 install_packages
 install_ohzsh
 install_dotfiles
+create_motd
 
