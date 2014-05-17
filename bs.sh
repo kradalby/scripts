@@ -31,7 +31,8 @@ function install_packages() {
     $SUDO apt-get install -y \
         tmux vim-nox python python3 git \
         htop zsh python-dev python-setuptools \
-        ntp tree ncdu ack-grep ssh mosh fail2ban
+        ntp tree ncdu ack-grep ssh mosh fail2ban \
+        cu
 }
 
 function install_ohzsh() {
