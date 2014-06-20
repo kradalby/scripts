@@ -32,7 +32,7 @@ function install_packages() {
         tmux vim-nox python python3 git \
         htop zsh python-dev python-setuptools \
         ntp tree ncdu ack-grep ssh mosh fail2ban \
-        cu
+        cu postfix
 }
 
 function install_ohzsh() {
@@ -70,10 +70,15 @@ function create_motd() {
     echo "This server was bootstrapped with bs.sh (kradalby.no/bs.sh)" >> /etc/motd
 }
 
+function root_mail_recipiant() {
+    echo "kradalby: kradalby@kradalby.no" >> /etc/aliases
+}
+
 change_repos
 update
 install_packages
 install_ohzsh
 install_dotfiles
 create_motd
+root_mail_recipiant
 
