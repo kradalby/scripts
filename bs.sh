@@ -32,7 +32,7 @@ function install_packages() {
         tmux vim-nox python python3 git \
         htop zsh python-dev python-setuptools \
         ntp tree ncdu ack-grep ssh mosh fail2ban \
-        cu postfix
+        cu postfix lldpd
 }
 
 function install_ohzsh() {
