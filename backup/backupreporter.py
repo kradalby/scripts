@@ -2,9 +2,10 @@
 #!/usr/bin/python3
 import datetime, os
 
-PATH="/storage/backup"
-NEWFILES={}
-AGE=1
+PATH = "/storage/backup"
+BTRFS_MOUNT = ['/storage']
+NEWFILES = {}
+AGE = 1
 
 def get_all_files(path):
     files={}
@@ -43,11 +44,22 @@ def generate_pretty():
         txt += "\n"
     return txt        
 
-def raidstat():
+def diskInformation():
     print(os.popen("cat /proc/mdstat").read())
+
+    for mount in BTRFS_MOUNT:
+        print(os.popen("btrfs filesystem show %s" % mount).read())
+        print(os.popen("btrfs filesystem df %s" % mount).read())
+        
+
+    disks = os.popen("ls -1 /dev/sd*").read().split("\n")
+    for disk in disks:
+        if len(disk) == 8:
+            print(os.popen("smartctl -H %s" % disk).read())
+            
         
 
 generate_new_list(get_all_files(PATH))
 print(generate_pretty())
-print(raidstat())
+print(diskInformation())
 
