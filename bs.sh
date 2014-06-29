@@ -32,7 +32,7 @@ function install_packages() {
         tmux vim-nox python python3 git \
         htop zsh python-dev python-setuptools \
         ntp tree ncdu ack-grep ssh mosh fail2ban \
-        cu postfix lldpd
+        cu postfix lldpd lm-sensors
 }
 
 function install_ohzsh() {
@@ -74,6 +74,11 @@ function root_mail_recipiant() {
     echo "kradalby: kradalby@kradalby.no" >> /etc/aliases
 }
 
+function configure_sensors() {
+    yes | sensors-detect
+    /etc/init.d/kmod start
+}
+
 change_repos
 update
 install_packages
@@ -81,4 +86,5 @@ install_ohzsh
 install_dotfiles
 create_motd
 root_mail_recipiant
+configure_sensors
 
