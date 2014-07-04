@@ -72,6 +72,7 @@ function create_motd() {
 
 function root_mail_recipiant() {
     echo "kradalby: kradalby@kradalby.no" >> /etc/aliases
+    newaliases
 }
 
 function configure_sensors() {
