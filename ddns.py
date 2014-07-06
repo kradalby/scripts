@@ -5,15 +5,11 @@ requests
 """
 
 import requests
+import ddns_settings as s
 from datetime import datetime
 
-DOMAIN  = "fap.no"
-SUBDOMAIN  = "tw"
-
-CLIENTID = ""
-APIKEY = ""
 APIURL = "https://api.digitalocean.com/v1/domains/"
-APIURL2 = "client_id=%s&api_key=%s" % (CLIENTID, APIKEY)
+APIURL2 = "client_id=%s&api_key=%s" % (s.CLIENTID, s.APIKEY)
 
 def get_public_ip():
     r = requests.get("http://canihazip.com/s")
@@ -52,20 +48,21 @@ def update_record(domain, ip, subdomain=None):
 if __name__ == "__main__":
     try:
         pub_ip = get_public_ip()
-        dns_ip = get_current_dns_ip(DOMAIN, subdomain=SUBDOMAIN)
+        dns_ip = get_current_dns_ip(s.DOMAIN, subdomain=s.SUBDOMAIN)
 
         if pub_ip == dns_ip:
             print("%s - Current ip: %s, no change, so no update" % (datetime.now(), pub_ip))
         else: 
             print("%s - IP has changed from %s to %s, updating" % (datetime.now(), dns_ip, pub_ip))
-            if update_record(DOMAIN, pub_ip, subdomain=SUBDOMAIN):
+            if update_record(s.DOMAIN, pub_ip, subdomain=s.SUBDOMAIN):
                 print("%s - Update successful" % datetime.now())
             else:
                 print("%s - Update failed" % datetime.now())
                 
     
-    except:
+    except Exception as e:
         print("%s - Something went wrong, do you have internet?" % datetime.now())
+        print(e)
 
 
 
