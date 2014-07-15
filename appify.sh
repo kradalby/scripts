@@ -4,6 +4,7 @@
 
 APPNAME=${2:-$(basename "$1" ".sh")}
 DIR="$APPNAME.app/Contents/MacOS"
+ABSPATH="$(pwd)/$1"
 
 if [ -a "$APPNAME.app" ]; then
   echo "$PWD/$APPNAME.app already exists :("
@@ -11,7 +12,8 @@ if [ -a "$APPNAME.app" ]; then
 fi
 
 mkdir -p "$DIR"
-cp "$1" "$DIR/$APPNAME"
-chmod +x "$DIR/$APPNAME"
+#cp "$1" "$DIR/$APPNAME"
+ln -s "$ABSPATH" "$DIR/$APPNAME"
+chmod +x "$ABSPATH"
 
 echo "$PWD/$APPNAME.app"
