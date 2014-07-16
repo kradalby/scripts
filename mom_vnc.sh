@@ -10,18 +10,19 @@ if [ $count -eq 0 ]
 then
     echo "Not home"
     # Force ssh into background
-    eval "ssh kradalby@tw.fap.no -p 21337 -L 6001:localhost:6001 -N &"
+    eval "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no kradalby@tw.fap.no -p 21337 -L 6001:localhost:6001 -N &"
+    sleep 6
 else
     echo "Home"
     # Force ssh into background
     eval "ssh kradalby@snorlax.dalby -L 6001:localhost:6001 -N &"
+    sleep 2
 fi    
 
 
 # Get pid
 sshpid=$!
 
-sleep 2
 
 # Open vnc and wait for it to close
 open -W vnc://localhost:6001
