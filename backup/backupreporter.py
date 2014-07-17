@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-#!/usr/bin/python3
+#!/usr/bin/env python
 import datetime, os
 
 PATH = "/storage/backup"
-BTRFS_MOUNT = ['/storage']
+BTRFS_MOUNT = [('/storage','/dev/sdd')]
 NEWFILES = {}
 AGE = 1
 
@@ -45,17 +45,21 @@ def generate_pretty():
     return txt        
 
 def diskInformation():
-    print(os.popen("cat /proc/mdstat").read())
 
+    print("-----------------------------------------------------------------------------------")
     for mount in BTRFS_MOUNT:
-        print(os.popen("btrfs filesystem show %s" % mount).read())
-        print(os.popen("btrfs filesystem df %s" % mount).read())
+        print(os.popen("btrfs filesystem show %s" % mount[1]).read())
+        print(os.popen("btrfs filesystem df %s" % mount[0]).read())
+        print("-----------------------------------------------------------------------------------")
         
 
-    disks = os.popen("ls -1 /dev/sd*").read().split("\n")
+    disks = os.popen("ls -1 /dev/sd*").read().split("\n")[:-1]
     for disk in disks:
         if len(disk) == 8:
-            print(os.popen("smartctl -H %s" % disk).read())
+            lines = [x for x in os.popen("smartctl -H %s" % disk).read().split("\n") if x][2:]
+            print(disk)
+            print("\n".join(lines))
+            print("-----------------------------------------------------------------------------------")
             
         
 
