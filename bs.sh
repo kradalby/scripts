@@ -32,7 +32,7 @@ function install_packages() {
         tmux vim-nox python python3 git \
         htop zsh python-dev python-setuptools \
         ntp tree ncdu ack-grep ssh mosh fail2ban \
-        cu postfix lldpd lm-sensors
+        cu postfix lldpd lm-sensors apticron
 }
 
 function install_ohzsh() {
