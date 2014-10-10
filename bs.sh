@@ -33,10 +33,16 @@ function add_repos() {
 
     echo "Adding nginx repo"
     curl http://nginx.org/keys/nginx_signing.key | apt-key add -
-    echo "\n" >> /etc/apt/sources.list
+    echo "" >> /etc/apt/sources.list
     echo "# Nginx repos" >> /etc/apt/sources.list
     echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/sources.list
-    echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/sources.list
+    echo "deb-src http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/sources.list
+
+    echo "Adding weechat source"
+    echo "" >> /etc/apt/sources.list
+    echo "# Weechat repos" >> /etc/apt/sources.list
+    echo "deb http://debian.weechat.org $1 main" >> /etc/apt/sources.list
+
 
 }
 
