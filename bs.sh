@@ -26,6 +26,20 @@ function update() {
     $SUDO apt-get dist-upgrade -y 
 }
 
+function add_repos() {
+    echo "Adding thirdparty repos"
+    echo "Adding nodejs repo"
+    curl -sL https://deb.nodesource.com/setup | bash -
+
+    echo "Adding nginx repo"
+    curl http://nginx.org/keys/nginx_signing.key | apt-key add -
+    echo "\n" >> /etc/apt/source.list
+    echo "# Nginx repos" >> /etc/apt/source.list
+    echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/source.list
+    echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/source.list
+
+}
+
 function install_packages() {
     echo "Installing packages from apt"
     $SUDO apt-get install -y \
@@ -81,6 +95,7 @@ function configure_sensors() {
 }
 
 change_repos
+add_repos "wheezy"
 update
 install_packages
 install_ohzsh
