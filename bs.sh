@@ -33,10 +33,10 @@ function add_repos() {
 
     echo "Adding nginx repo"
     curl http://nginx.org/keys/nginx_signing.key | apt-key add -
-    echo "\n" >> /etc/apt/source.list
-    echo "# Nginx repos" >> /etc/apt/source.list
-    echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/source.list
-    echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/source.list
+    echo "\n" >> /etc/apt/sources.list
+    echo "# Nginx repos" >> /etc/apt/sources.list
+    echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/sources.list
+    echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/sources.list
 
 }
 
