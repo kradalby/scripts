@@ -1,0 +1,786 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        
+            <meta name="Robots" content="index,follow" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta http-equiv="Content-Language" content="en" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+        <meta name="Security" content="public" />
+        <meta name="Copyright" content="Copyright (c) 2014 by Citrix Systems, Inc."/>
+        <meta name="DC.Rights" content="Copyright (c) 2014 by Citrix Systems, Inc."/>
+        <meta name="DC.Language" scheme="rfc1766" content="en-US" />
+        <meta name="forCitrixIT" content="BECSUP01" />
+        <meta name="forSiteMonitoring" content="SEARCHSTR_SUPKC"/>
+
+        <title>CTX139790 - Hotfix XS62ESP1001 - For XenServer 6.2.0 Service Pack 1 - Citrix Knowledge Center</title>
+
+        <link rel="schema.DC" href="http://purl.org/DC/elements/1.0/" />
+        <link rel="icon" type="image/vnd.microsoft.icon" href="/i/favicon.ico"/>
+        <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/i/favicon.ico"/>
+        
+
+        
+            
+            
+                <link rel="stylesheet" type="text/css" href="/css/kc_grey.css" media="projection, screen" />
+                <link rel="stylesheet" type="text/css" href="/css/kc.css" media="projection, screen" />
+                <link rel="stylesheet" type="text/css" href="/css/articleprint.css" media="print" />
+                <!--[if IE]>
+                    <link rel="stylesheet" type="text/css" href="/css/kc_ie.css" media="projection, screen" />
+                <![endif]-->
+                <!--[if IE 8]>
+                    <link rel="stylesheet" type="text/css" href="/css/kc_ie8.css" media="projection, screen" />
+                <![endif]-->            
+                <!--[if IE 7]>
+                    <link rel="stylesheet" type="text/css" href="/css/kc_ie7.css" media="projection, screen" />
+                <![endif]-->
+                
+        
+        <script type="text/javascript" src="/js/jquery/jquery-1.8.3.min.js"></script>
+        <script>jQuery.noConflict();</script>
+        <script type="text/javascript" src="/js/ctx/cxs.utils.js"></script>
+        
+        <meta name="Author" content="Citrix Technical Support"/>
+    <meta name="Owner" content="Citrix Technical Support"/>
+    <meta name="Keywords" content="CTX139790,hotfix,KbCategory name:XenServer 6.2.0 id:3112,XenCenter,XS62ESP1"/>
+    <meta name="Description" content="This hotfix is for customers who use XenCenter as the management console for XenServer 6.2.0 Service Pack 1..Citrix hotfix CTX139790, last updated Dec 13, 2013."/>
+    <meta name="Expires" content="Sat, 25 Oct 2014 13:42:07 GMT"/>
+     
+    <link rel="stylesheet" media="print" type="text/css" href="/css/articleprint.css" />
+
+        <!-- TAG MANAGEMENT CODE JS FILE - KEEP IN HEADER AREA OF FILE -->
+        <script type="text/javascript" src="http://www.citrix.com/static/corporateresources/kc/tagManagement.js"></script>
+        
+
+    </head>
+    
+        <body class="articlebody">
+    
+        <div id="container">
+            
+            
+            
+            <!-- MINI NAV HEADER -->
+            <div class="miniNavContainerHeader">
+                <div class="miniNavHeader1">
+                    <div class="floatLeft">
+                        <a class="miniNavArrowGrey" href="http://www.citrix.com">Citrix.com</a>
+                        <div class="clearBoth"></div>
+                    </div>
+                    <div class="floatRight">
+            <!--[if gte IE 6]>  
+                    <a class="linkMyAlerts" href="/profile/watches/">Alerts</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.citrix.com/login?url=http://support.citrix.com/article/CTX139790/" id="loginlink" >Log In</a>
+            <![endif]-->
+                    
+            <![if !IE ]>
+                    <a class="linkMyAlerts"  href="/profile/watches/">Alerts</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.citrix.com/login?url=http://support.citrix.com/article/CTX139790/" id="loginlink" >Log In</a>
+            <![endif]>
+                    
+            <!--[if lte IE 5.5000]>
+                    <a class="linkMyAlerts"  href="/profile/watches/">Alerts</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.citrix.com/login?url=http://support.citrix.com/article/CTX139790/" id="loginlink" >Log In</a>
+            <![endif]-->
+
+                        <div class="clearBoth"></div>
+                    </div>
+                    <div class="clearBoth"></div>
+                        
+                </div>
+                <div class="miniNavHeader2">
+                    <a href="/">
+                        <div class="miniNavHeaderLogo">Citrix Support</div>
+                    </a>
+                </div>
+                
+            </div>
+            <!-- MINI NAV HEADER ENDS -->
+            
+            <!-- Only viewable during print or print preview -->
+            <div class="printHeader">
+                <div class="ctx-logo-print"><a href="http://www.citrix.com"><img alt="Citrix" src="/i/citrixLogo-gray.gif" width="103" height="68"></a></div>
+                <div class="exitPrintView"></div>
+                <script type="text/javascript">
+                    jQuery(document).ready(function() {
+                        var url = window.location.href; 
+                        if(url.indexOf("?print") >= 0){
+                            jQuery(".exitPrintView").append('<a href="'+url.substring(0,url.indexOf('?print'))+'">Exit Print View</a>').css("display", "block");
+                        }
+                    });
+                </script>
+            </div>
+            
+    <div id="ctxkcmain" class="noutil">
+    
+                    <div class="searchkcformWrapper">
+                        <div class="searchkcform">
+                            <form name="searchkc"  action=/search/basic/ method="get">
+                            <div class="searchFormFieldWrapper">
+                                <div class="searchFormField">
+                                <input class="searchkcforminput" type="text" name="searchQuery" id="searchtxt" />
+                                <input type="image" src="/i/searchBtnBg.png" name="searchbtn" id="gsasearchbtn" class="searchsubmits" alt="Search"/>
+                                </div>
+                                <span class="includeLegacy">Include legacy content</span>
+                        <script type="text/javascript">
+                            (function($) {
+                            //* check if eol cookie is present and add relevant css *//
+                            var name = 'cxs_eol' + "=";
+                            var ca = document.cookie.split(';');
+                            var cookiePresent = false;
+                            for(var i=0; i<ca.length; i++) {
+                                var c = ca[i];
+                                while (c.charAt(0)==' ') c = c.substring(1);
+                                if (c.indexOf(name) != -1) {
+                                    if(c.substring(name.length, c.length) == 1){
+                                        cookiePresent = true;
+                                    }
+                                }
+                            }
+                            if(cookiePresent){
+                                $('.searchFormFieldWrapper').find('span.includeLegacy').addClass('legacyChecked');
+                            }else{
+                                $('.searchFormFieldWrapper').find('span.includeLegacy').removeClass('legacyChecked');
+                            }
+                            
+                            $('.searchFormFieldWrapper').find('span.includeLegacy').click(function() {
+                              if ( $(this).hasClass('legacyChecked') ) {
+                                $(this).removeClass('legacyChecked');
+                                cxsObj.utils.deleteCookie('cxs_eol');
+                                } else {
+                                    $(this).addClass('legacyChecked');
+                                    cxsObj.utils.setCookie('cxs_eol', '1', '')
+                                }
+                            });
+                        })(jQuery);
+                        </script>
+                            </div>
+                            </form>
+                            
+                            
+                        </div>
+                        <div class="utilityNav blockRight">
+                            <div class="selfhelp_cont">
+                                <div class="selfHelpResources">
+                                    <span id="cxs_selfhelp">Self-help Resources</span>
+                                    <div class="info_display" id="selfhelp_list">
+                                        <span class="info_arrow"></span>
+                                        <div class="info_inner">
+                                            <ul>
+                                                <li><span><a href="https://taas.citrix.com/AutoSupport">Insight Services</a></span></li>
+                                                <li><span><a href="http://support.citrix.com/proddocs">eDocs</a></span></li>
+                                                <li><span><a href="http://discussions.citrix.com/">Discussions</a></span></li>
+                                                <li><span><a href="http://training.citrix.com/">Education</a></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cxs_alert"><a href="/profile/watches/">Alerts</a></div>
+    <div class="contactButton silverButton"><a  
+        href="http://support.citrix.com/cms/kc/contactsupport/">
+Contact Support</a>
+</div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+    </div>
+        <div id="ctxkccontent"> 
+            <div class="ctxtsarticle hotFixPage">
+    <h1>     
+     Hotfix XS62ESP1001 - For XenServer 6.2.0 Service Pack 1
+</h1>
+    <div class="artdata">
+        <ul class="artDataMeta">
+            <li>
+                        CTX139790
+            </li>
+        <li>
+                <span>Created On</span>&nbsp; Dec 13, 2013
+            </li>
+            <li>
+                <span>Updated On</span>&nbsp; Dec 13, 2013
+            </li>
+      <li id="helpfulCounter" >
+          <span class="cxsLike"></span><span class="likeCount"> 135 </span> found this helpful
+      </li>
+         </ul>
+         
+                <ul><li><span>Software Update</span></li><li><span>Type :</span>&nbsp;Public</li></ul>
+    </div>
+        <div class="artprodrelated" id="ctxkcprodrelated">
+                <h3><a rel="" href="#prodrelated">See Applicable Products</a></h3>
+        </div>
+    <div class="downlinkbtn">  
+        <a href="http://downloadns.citrix.com.edgesuite.net/8708/XenCenter.msi" onclick="javascript:trackDownload();" class="downLinkBtn" title="Download">
+            Download <!--<i>Download</i>--></a>
+            
+        <span><a href="http://downloadns.citrix.com.edgesuite.net/8708/XenCenter.msi" onclick="javascript:trackDownload();" class="attachmentLink">Hotfix XS62ESP1001 - For XS62ESP1</a></span>
+    </div>
+     <div class="articleheader">
+
+    <div class="artbody">
+        <a name="TopOfPage"> </a>
+
+ <!-- {{{1 -->
+
+    <!-- {{{2 style -->
+    <style type="text/css">
+     BODY {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 80%;
+      }
+      H2 {
+        font-size: 124%;
+        font-weight: bold; 
+        margin-top: 12pt; 
+        margin-bottom: 6pt;
+        padding-top: 5px;
+      }
+      H3 {
+        font-size: 100%;
+        font-weight: bold;
+        margin-top: 12pt;
+        margin-bottom: 6pt; 
+      }
+      H4 {
+        font-size: 80%;
+        margin-top: 24pt; 
+        border-top: #666 1px solid;
+        padding-top: 8px;
+      }
+      TABLE {
+        margin-top: 16px;
+        border-collapse: collapse;
+      }
+      TH {
+        font-weight: bold;
+        height: 20pt;
+        background-color: #f5f5f5;
+      }
+      TD,TH {
+        padding: 5px;
+        border-width: 1px;
+        border-color: black;
+        border-style: solid;
+      }
+      P {
+        margin-top: 10px;
+        margin-bottom: 0px;
+      }
+
+      BLOCKQUOTE {
+      width: 90%;
+      background-color: #f5f5f5;
+      border-width: 1px;
+      border-style: dashed;
+      border-color: black;
+      padding: 5px 5px 5px 5px;
+      font-size: 10pt;
+      margin: 5px 5px 5px 5px;
+      }
+
+      CODE {
+      color: red;
+      font-style: italic;
+      }
+
+      STRONG {
+      font-weight: bold;
+      }
+
+      TT {
+      font-size: 10pt;
+      font-family: Courier, Courier New, monospace;
+      }
+    </style>
+
+
+    <!-- {{{2 readme information -->
+   <div>
+
+<!--
+    <p>
+    Hotfix package name:XenCenter.msi <br />
+    For: XenServer 6.2.0 <br />
+    Hotfix Name: XS62ESP1001(XenCenter Only)
+    Replaces: None<br />
+    Date: December 2013<br />
+    Language supported: English (US)<br />
+    Readme version: 1.00</p>
+-->
+
+    <h2>Who Should Install This Hotfix?</h2> <!-- {{{2 -->
+    <p>This hotfix is for customers who use XenCenter as the management console for XenServer 6.2.0 Service Pack 1. For information about XenServer 6.2.0 Service Pack 1, see CTX139789 &ndash; <a href="/article/CTX139789">XenServer XS62ESP1 Release Notes</a>.</p> 
+
+    <h2>Issues Resolved In This Hotfix</h2>
+            <p>This hotfix resolves issues described in CTX139789 &ndash; <a href="/article/CTX139789">XenServer XS62ESP1 Release Notes</a>.</p>
+        
+        <h2>Installing the Hotfix</h2> <!-- {{{2 -->
+       <p>
+        <ol>
+            <li>Download XenCenter.msi to a known location.</li>
+            <li>Double click <strong>XenCenter.msi</strong>.
+            <li>Click <strong>Run</strong> to start the Citrix XenCenter Setup wizard.</li>
+            <li>Click <strong>Next</strong> to continue and follow the steps of the Setup wizard</li> 
+            <li>When you have finished making any modifications to the installation directory settings, click <strong>Install</strong> to start the installation.</li>
+            <li>Click <strong>Finish</strong> to exit the XenCenter Setup wizard.</li>
+        </ol>
+ <h2>Files</h2> <!-- {{{2 -->
+      <h3>Hotfix File</h3> <!-- {{{3 -->
+      <table>
+          <tr>
+            <th>Component</th>
+            <th>Details</th>
+        </tr>              
+        <tr>
+            <td><b>Hotfix Filename</b></td>
+              <td>XenCenter.msi</td>
+          </tr>
+          <tr>
+              <td><b>Hotfix File md5sum</b></td>
+              <td>1eab35f765e342462d7ab69ba6acdcc8</td>
+          </tr>
+        </table>      
+ <h3>Files Updated</h3> <!-- {{{3 -->
+      <table>
+          <tr><td>XenCenter version 6.2.2 (build 1377)</td></tr>
+         </table>
+ 
+      <!-- {{{2 -->
+
+</div>
+
+<style type="text/css">
+<!--
+/* Hack to ensure that remainder of page's formatting is not messed up. */
+
+TD {
+  border-width: 0px;
+}
+TABLE {
+  margin-top: 0 px;
+}
+//-->
+</style>
+
+   <br/>
+    </div>
+        <a name="prodrelated"></a>
+        <div class="artprodrelated"><h2>Applicable Products</h2>
+            <ul><li><a href="/product/xens/v6.2.0/" >XenServer 6.2.0</a></li></ul>
+        </div>
+    
+    <div class="forumsBanner">
+        <div class="forumsInner">
+        <h3>Share your comments or find out more about this topic</h3>
+        <a href="http://discussions.citrix.com">Citrix Forums</a>
+    </div>
+    <script language="javascript">
+        productFamilyKey3 = "";
+        topics3 = "";
+        
+        productFamilyKey = productFamilyKey3.replace("/","--") + "/";
+        topics = topics3.replace("/","--") + "/";
+        
+    </script>
+    </div>
+</div>
+    <div class="articleToolBarWrapper">
+    <div class="arttoolbar">
+        <div class="arttoolbarcont" >
+            <div class="languageBlock">
+                <p>Languages</p>
+                <div  class="altlanguages" >
+                    
+                        <i title="Not Available" alt="Not Available">N/A</i>
+                    </div>
+                <div class="clear"></div>
+            </div>
+            
+                <div class="addThisBlock">
+                    <script type="text/javascript">
+                    addthis_pub             = 'webservices'; 
+                    addthis_brand           = 'Knowledge Center';
+                    addthis_options         = 'google, live, furl, ask, stumbleupon, delicious, digg, reddit, more';
+                    </script>
+                    <!-- AddThis Button BEGIN -->
+                    <div class="addthis_toolbox addthis_default_style ">
+                    <a class="addthis_button_email"></a>
+                    <a class="addthis_button_google"></a>
+                    <a class="addthis_button_linkedin"></a>
+                    <a class="addthis_button_twitter"></a>
+                    <a class="addthis_button_compact"></a>
+                    <a class="addthis_counter addthis_bubble_style"></a>
+                    </div>
+                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=webservices"></script>
+                    <!-- AddThis Button END -->
+                </div>
+                
+            <div class="printBlock">
+                <a href="?print" title="Print View">print</a> 
+                <a href="?print" title="Print View"><img src="/i/ctx-print-icon.png" width="23" height="23" alt="Print View" class="posmarginpic" /></a>
+            </div>
+            
+        </div>
+    </div>
+            <div class="feedbackFromOuter">
+                <div class="feedbackFromInner">
+                    <h3 id="question0Label">Was this helpful? </h3>
+                    <div id="deflectionForm" name="deflectionFormDiv">
+                        <form id="question1" name ="deflectionSurvey" >
+                        <div class="positiveFeedbackWrapper">
+                            <div id="yesPath" name="yesPath" class="positiveFeedContainer">
+                                <p>Thank you for your feedback!</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="ctxNumber" value="CTX139790"/> 
+                            <span><input id="didSolve" type="radio" name="solve" value="didSolve"  
+                            /> <label for="didSolve">Yes</label></span>
+                            <span><input id="didNotSolve" type="radio" name="solve" value="didNotSolve"  
+                            /> <label for="didNotSolve">No</label></span>
+                        </form>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div id="feedbackButtonHelpful"></div>
+                    <span class="fbHelpfulOverPreload"></span>
+                    <div class="clear"></div>
+                    
+                </div>
+            </div>
+    <br/>
+    <script language="javascript">
+        var focusfeedback = false;
+    </script>
+    <script language="javascript">
+    function sendToGoogleAnalytics(question, answer)
+    {
+        var eventCategory = question;
+        var eventAction   = answer;
+        
+        var productVersion = "XenServer 6.2.0";
+        var categoryName   = "none";
+        var articleType    = "Hotfix";
+        var ctxNumber      = "CTX139790";
+        var eventValue     = 1;
+    
+        try 
+        {
+            //var eventLabel = articleType + "/" + ctxNumber;
+            var eventLabel = "/" + productVersion + "/" + categoryName + "/" + articleType + "/" + ctxNumber;
+            var pageTracker = _gat._getTracker("UA-1066095-1");
+            pageTracker._initData();
+    
+            //alert("ANALYTICS(" + eventCategory + "," + eventAction + "," + eventLabel + "," + eventValue + ")");
+            pageTracker._trackEvent(eventCategory, eventAction, eventLabel, eventValue);
+        }
+        catch(err)
+        {
+            //alert("ANALYTICS FAILED(" + eventCategory + "," + eventAction + "," + eventLabel + "," + eventValue + ")");
+        }     
+    }
+    </script>
+
+
+    <script language="javascript">
+    var runDisableQuestion1= false;
+    var runDisableQuestion2= false;
+    </script>
+
+    <script language="javascript">
+
+        jQuery(document).ready(function(){
+    
+            jQuery("#additionalcomments1").css("display","none");
+        
+            jQuery("#internal").click(function(event){
+            jQuery("#internal").hide();
+        
+            jQuery("#additionalcomments1").css("display","block");
+           
+        });    
+    });
+    
+    </script>   
+    </div>
+            <div class="clear"></div>
+            
+            <div id="buttonKampyleEmbedded"></div>
+            <div style="clear: both;"></div>
+        </div>
+    <!-- close div#ctxKcMain -->
+    
+    <!-- MINI NAV FOOTER -->
+    <div class="miniNavContainerFooter">
+        <div class="floatLeft">
+            <a class="miniNavFooterCitrixLink" href="http://www.citrix.com">Citrix.com</a>
+        </div>
+        
+        <div class="floatRight">
+            
+            <script type="text/javascript">
+                var nd = new Date();
+                document.write("&copy; 1999-"+nd.getFullYear()+" Citrix Systems, Inc. All Rights Reserved.");
+            </script>           
+
+            <span class="footBorder">|</span>
+            <a href="http://www.citrix.com/about/legal/legal-notice.html">Terms of Use</a>
+            <span class="footBorder">|</span>
+            <a href="http://www.citrix.com/about/legal/privacy.html">Privacy</a>
+            <span class="footBorder">|</span>
+            <a href="http://www.citrix.com/about/governance.html">Governance</a>
+            
+             
+        </div>
+        <div class="clearBoth"></div>
+    </div>
+    <!-- MINI NAV FOOTER ENDS -->   
+
+    
+    <div id='copyright'>
+        <script type="text/javascript">
+                if(window.location.href.indexOf('?print') > -1){
+                    var d = new Date();
+                    jQuery("#copyright").html("<p>&copy; 1999-"+d.getFullYear()+" Citrix Systems, Inc. All Rights Reserved.</p>");
+                }
+        </script>
+        <!-- Only viewable during print or print preview -->
+        <div class="exitPrintView"></div>
+        </div>
+    <div class="clear"></div>       
+  
+        <script src="/js/jquery/jquery_combined_scripts.js?ver=140210" type="text/javascript"></script>
+            
+        <script type="text/javascript">
+
+            var hasLoginError = false;
+            var hasAnchorFix = true;
+            var hasTwoColList = false;
+            var hasLoginVal = false;
+            var hasTableFix = true;
+            var hasTreeView = false;
+            var hasTabs = false;
+            var hasThickBox = false;
+            var hasRating = true;
+            var hasWatch = false;
+            var hasComments = true;
+            var hasBookmarking = true;
+            var hasSearchHelp = false;
+            var hasLangSwitch = false;
+            var hasHoverTip = false;
+            var hasJsForm = false;
+            var isFeedback = false;
+            var isGlobal = true;
+            var isGlobalNoNav = false;
+            var isSiteMap = false;
+            var isSearch = false;
+            var isAdvancedSearch = false;
+            var isForumSearch = false;
+            var isInternal = "false";
+            var isDocFeedback = false;
+            var isDocFeedbackArticle = false;
+            var isDocFeedbackHelp = false;
+            var isDocFeedbackPDF = false;
+            var isErrorPage = false;            
+        </script>
+        
+    
+        
+    
+    
+        <script src="/js/jquery/jquery.rating.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var score = -1;
+            if ( score == -1 ) {
+                score = 0;
+            }
+            
+
+            var cookies = document.cookie.split(/; /g);
+            for (var i=0; i<cookies.length; i++) {
+                var cookie = cookies[i];
+                if (cookie.indexOf("=") == -1) {
+                    continue;                       
+                }
+                var name = cookie.substring(0, cookie.indexOf("="));
+                var value = cookie.substring(cookie.indexOf("=") + 1);
+                if (name == "ratingselected") {
+                    var imagen = "/i/rating-"+value+"-stars-red.gif";
+                    jQuery("#selstar").attr({ src: imagen });
+                    }
+            }
+        
+                        jQuery("div#rate2").rating("/kc/rating?ctx=CTX139790",{maxvalue:5, curvalue:score});
+        </script>
+    
+    
+    
+    
+    
+
+    
+    <script type="text/javascript" src="/js/jquery/jquery.watermarkinput.js"></script>
+    <script type="text/javascript" src="/js/ctx/global_309.js?ver=140210"></script>
+        
+            <script language="javascript">
+                    jQuery(document).ready(function(){
+                        jQuery("a.ctx-login-show").attr("href", "https://www.citrix.com/login?url=http://support.citrix.com/article/CTX139790/");
+                    });
+            </script>
+        
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? 
+            "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + 
+            "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+            <script type="text/javascript">
+                var urlName = location.href;
+                var urlSub1 = "/";
+    
+                function rightFromSubStringToEndOfFullString(fullString, subString) {
+                    if (fullString.lastIndexOf(subString) == -1) {
+                        return "";
+                    } else {
+                        return fullString.substring(fullString.lastIndexOf(subString)+1, fullString.length);
+                    }
+                }
+                
+                var articleCtxNumber = rightFromSubStringToEndOfFullString(urlName, urlSub1);
+                var articleNumber = articleCtxNumber.slice(3)
+                var fileName = "CTX" + articleNumber;
+
+                var pageTracker = _gat._getTracker("UA-1066095-1");
+                pageTracker._initData();
+                if (topics != "/") {
+                    topics2 = topics;
+                } else {
+                    topics2 = "none/";
+                }
+                if (productFamilyKey != "/") {
+                    productFamilyKey2 = productFamilyKey;
+                } else {
+                    productFamilyKey2 = "none/";
+                }
+            
+                pageTracker._trackPageview("/article/Hotfix/" + topics2 + productFamilyKey2 + fileName);
+
+                function trackDownload() {
+                    pageTracker._trackPageview("/downloads/Public Hotfixes/" + topics2 + productFamilyKey2 + fileName);
+                    return true;
+                }
+            </script>
+    <script type="text/javascript">
+        /* 
+        jQuery(document).ready 
+        setting up the login form submit button events 
+        
+        
+
+        Added esc key functionality so user can escape the window
+        jQuery(document).keyup( function(e){ 
+                    var key = e.keyCode;
+                    if(key == 27){
+                        tb_remove();
+                    }
+                });
+    
+                jQuery("#closebtnlogin").click(function() {
+                    tb_remove();
+                    return false;
+                }); 
+    
+        set focus as soon as you open the login window 
+        // setTimeout("try{document.getElementById('username').focus();}catch(error){}",100); 
+        setTimeout('jQuery("#username").focus();',100);
+        */
+    
+        /* NOTE: leaving inline, as IE has issues with post-load scripts */
+    </script>
+    
+    
+    
+
+<!-- CONT-219 -->
+<script type="text/javascript">
+<!-- CONT-3317 -->
+    jQuery(document).ready(function() {
+         if(location.pathname=='/'){
+            jQuery("#searchtxt").focus();
+         }else {
+            jQuery("#searchtxt").blur();
+         }
+    });
+</script>
+
+
+<!-- SPIKE OPEN SUPPORT CASE NEW FUNCTIONALITY -->
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        
+        var windowWidthOpenCase = jQuery(window).width();
+        var openCasePosLeft = (windowWidthOpenCase - 731)/2;
+        var  openCaseUrl = window.location.href;
+        
+        if (openCaseUrl.search("supportcase=true") != -1) {
+            
+            jQuery("#openCaseLayerBlocker").css("display","block");
+            jQuery("#openCaseLayer").css("display","block"); 
+            drawIFrame();
+        }
+        
+        jQuery("#openCaseLayer").css("left",openCasePosLeft); 
+    
+        jQuery("#openSupportCase").click(function(){
+            drawIFrame();
+            jQuery("#openCaseLayerBlocker").css("display","block");
+            jQuery("#openCaseLayer").css("display","block");            
+            return false;           
+        });
+        
+        jQuery("#openCaseCloseButton").click(function(){
+            jQuery("#openCaseLayerBlocker").css("display","none");
+            jQuery("#openCaseLayer").css("display","none");     
+        });
+        
+        
+    });
+    
+    function drawIFrame()
+    {
+        if (!jQuery('#oprtIFrame').length)
+        {
+            jQuery('#openCaseLayer').append('<iframe id="oprtIFrame" src ="https://secureportal.citrix.com/mycitrix/launch/eservice/sso.aspx" width="700" height="500" scrolling="auto"> <p>Your browser does not support iframes.</p> </iframe>');
+        }
+    }
+</script>
+
+
+
+        <!--Start Kampyle k_config Code-->
+        <script type="text/javascript">
+            var applicationName = "kc";
+        </script>
+        
+        <script type="text/javascript" src="//www.citrix.com/static/kampyle/loadKampyleKc.js"></script>
+        <!--End Kampyle k_config Code-->
+
+        <!-- This is the closing code for tag management. It should be as close as possible to the closing body tag.-->
+        <script type="text/javascript">_satellite.pageBottom();</script>
+        
+        
+        
+    </body>
+    
+</html>
+
+
+
+

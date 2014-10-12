@@ -101,7 +101,7 @@ function configure_sensors() {
 }
 
 change_repos
-add_repos "wheezy"
+add_repos "$(lsb_release -cs)"
 update
 install_packages
 install_ohzsh

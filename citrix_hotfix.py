@@ -5,18 +5,26 @@ beautifulsoup4==4.3.2
 requests==2.4.3
 """
 
+import os
 import sys
 import requests
 from bs4 import BeautifulSoup
 
+def insert_dl_data(url):
+    index = url.find("net/")
+    new = url[:index+4] + "akdlm/" + url[index+4:]
+    return new
 
 article_url = sys.argv[1]
-print(article_url)
 
 article_r = requests.get(article_url)
-print(article_r)
-print(article_r.data)
 
-soup = article_r.data
+#f = open('derp.txt','r').read()
 
-print(soup.prettify())
+soup = BeautifulSoup(article_r.text)
+
+dllink = soup.find(class_="downLinkBtn")["href"]
+dlurl = insert_dl_data(dllink)
+
+os.system("wget %s" % dlurl)
+
