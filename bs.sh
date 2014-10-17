@@ -21,7 +21,7 @@ function add_repos() {
     curl -sL https://deb.nodesource.com/setup | bash -
 
     echo "Adding nginx repo"
-    curl http://nginx.org/keys/nginx_signing.key | apt-key add -
+    curl --silent http://nginx.org/keys/nginx_signing.key | apt-key add -
     echo "" >> /etc/apt/sources.list
     echo "# Nginx repos" >> /etc/apt/sources.list
     echo "deb http://nginx.org/packages/debian/ $1 nginx" >> /etc/apt/sources.list
@@ -54,11 +54,11 @@ function install_packages() {
 #    fi
 #}
 
-function install_prezto() {
-    echo "Installing prezto"
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "~/.zprezto"
-    chsh -s /bin/zsh
-}
+#function install_prezto() {
+#    echo "Installing prezto"
+#    git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
+#    chsh -s /bin/zsh
+#}
 
 function install_dotfiles() {
     echo "Installing dotfiles"
@@ -74,7 +74,7 @@ function change_repos() {
 
 function create_motd() {
     echo "Creating motd"
-    curl --compressed "http://www.lemoda.net/games/figlet/figlet.cgi?text=$(hostname)&font=puffy&width=80" > /etc/motd
+    curl  --silent --compressed "http://www.lemoda.net/games/figlet/figlet.cgi?text=$(hostname)&font=puffy&width=80" > /etc/motd
     echo "This server was bootstrapped with bs.sh (kradalby.no/bs.sh)" >> /etc/motd
 }
 
@@ -96,5 +96,5 @@ install_dotfiles
 create_motd
 root_mail_recipiant
 configure_sensors
-install_prezto
+#install_prezto
 
