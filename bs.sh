@@ -54,11 +54,11 @@ function install_packages() {
 #    fi
 #}
 
-#function install_prezto() {
-#    echo "Installing prezto"
-#    git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
-#    chsh -s /bin/zsh
-#}
+function install_prezto() {
+    echo "Installing prezto"
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
+    chsh -s /bin/zsh
+}
 
 function install_dotfiles() {
     echo "Installing dotfiles"
@@ -96,5 +96,5 @@ install_dotfiles
 create_motd
 root_mail_recipiant
 configure_sensors
-#install_prezto
+install_prezto
 
