@@ -8,22 +8,11 @@
 # Usage:
 # curl -k https://kradalby.no/bs.sh | bash
 
-SUDO=''
-
-
-# Make sure only root can run our script
-if [[ $EUID -ne 0 ]]; then
-    if [ -x /usr/bin/sudo ]; then
-        SUDO='sudo'
-    else
-        exit "You are not root, and sudo is not installed"
-    fi
-fi
 
 function update() {
     echo "Updating repositories and OS"
-    $SUDO apt-get update
-    $SUDO apt-get dist-upgrade -y 
+    apt-get update
+    apt-get dist-upgrade -y 
 }
 
 function add_repos() {
@@ -48,7 +37,7 @@ function add_repos() {
 
 function install_packages() {
     echo "Installing packages from apt"
-    $SUDO apt-get install -y \
+    apt-get install -y \
         tmux vim-nox python python3 git \
         htop zsh python-dev python-setuptools \
         ntp tree ncdu ack-grep ssh mosh fail2ban \
@@ -68,7 +57,7 @@ function install_packages() {
 function install_prezto() {
     echo "Installing prezto"
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "~/.zprezto"
-
+    chsh -s /bin/zsh
 }
 
 function install_dotfiles() {
@@ -76,18 +65,11 @@ function install_dotfiles() {
     mkdir ~/git
     git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles
     ~/git/dotfiles/deploy.sh
-
-    
-    if [[ $EUID -ne 0 ]]; then
-        echo "Installing dotfiles for root"
-        $SUDO su -c "git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles"
-        $SUDO su -c "~/git/dotfiles/deploy.sh"
-    fi
 }
 
 function change_repos() {
     echo "Changing repositories from main to main contrib non-free"
-    $SUDO sed -i 's/main/main contrib non-free/g' /etc/apt/sources.list
+    sed -i 's/main/main contrib non-free/g' /etc/apt/sources.list
 }
 
 function create_motd() {
