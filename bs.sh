@@ -92,9 +92,9 @@ change_repos
 add_repos "$(lsb_release -cs)"
 update
 install_packages
-install_prezto
 install_dotfiles
 create_motd
 root_mail_recipiant
 configure_sensors
+install_prezto
 
