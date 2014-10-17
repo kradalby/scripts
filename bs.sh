@@ -55,14 +55,20 @@ function install_packages() {
         cu postfix lldpd lm-sensors apticron
 }
 
-function install_ohzsh() {
-    echo "Installing Oh My ZSH for this user"
-    curl -L http://install.ohmyz.sh | sh
-    
-    if [[ $EUID -ne 0 ]]; then
-        echo "Installing Of My ZSH for root"
-        $SUDO su -c curl -L http://install.ohmyz.sh | sh
-    fi
+#function install_ohzsh() {
+#    echo "Installing Oh My ZSH for this user"
+#    curl -L http://install.ohmyz.sh | sh
+#    
+#    if [[ $EUID -ne 0 ]]; then
+#        echo "Installing Of My ZSH for root"
+#        $SUDO su -c curl -L http://install.ohmyz.sh | sh
+#    fi
+#}
+
+function install_prezto() {
+    echo "Installing prezto"
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "~/.zprezto"
+
 }
 
 function install_dotfiles() {
@@ -104,7 +110,7 @@ change_repos
 add_repos "$(lsb_release -cs)"
 update
 install_packages
-install_ohzsh
+install_prezto
 install_dotfiles
 create_motd
 root_mail_recipiant
