@@ -65,6 +65,7 @@ function install_dotfiles() {
     mkdir ~/git
     git clone https://github.com/kradalby/dotfiles.git ~/git/dotfiles
     ~/git/dotfiles/deploy.sh
+    curl https://kradalby.no/k/get.sh | bash
 }
 
 function change_repos() {
