@@ -12,7 +12,7 @@ d-i debian-installer/locale string en_US.UTF-8
 
 # Keyboard selection.
 # keymap is an alias for keyboard-configuration/xkb-keymap
-d-i keymap select us
+d-i keyboard-configuration/xkb-keymap select us
 # d-i keyboard-configuration/toggle select No toggling
 
 ### Network configuration
@@ -66,8 +66,8 @@ d-i netcfg/choose_interface select auto
 # Any hostname and domain names assigned from dhcp take precedence over
 # values set here. However, setting the values still prevents the questions
 # from being shown, even if values come from dhcp.
-d-i netcfg/get_hostname string unassigned-hostname
-d-i netcfg/get_domain string unassigned-domain
+#d-i netcfg/get_hostname string unassigned-hostname
+#d-i netcfg/get_domain string unassigned-domain
 
 # If you want to force a hostname, regardless of what either the DHCP
 # server returns or what the reverse DNS entry for the IP is, uncomment
@@ -97,7 +97,7 @@ d-i netcfg/wireless_wep string
 # If you select ftp, the mirror/country string does not need to be set.
 #d-i mirror/protocol string ftp
 d-i mirror/country string manual
-d-i mirror/http/hostname string http.no.debian.org
+d-i mirror/http/hostname string ftp.no.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
 
@@ -114,8 +114,8 @@ d-i mirror/http/proxy string
 d-i passwd/make-user boolean false
 
 # Root password, either in clear text
-d-i passwd/root-password password r00tme
-d-i passwd/root-password-again password r00tme
+#d-i passwd/root-password password r00tme
+#d-i passwd/root-password-again password r00tme
 # or encrypted using an MD5 hash.
 #d-i passwd/root-password-crypted password [MD5 hash]
 
@@ -320,7 +320,7 @@ tasksel tasksel/first multiselect standard, ssh-server
 #tasksel tasksel/desktop multiselect kde, xfce
 
 # Individual additional packages to install
-d-i pkgsel/include string curl
+d-i pkgsel/include string curl vim
 # Whether to upgrade packages after debootstrap.
 # Allowed values: none, safe-upgrade, full-upgrade
 #d-i pkgsel/upgrade select none
