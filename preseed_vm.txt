@@ -383,5 +383,5 @@ d-i finish-install/reboot_in_progress note
 # still a usable /target directory. You can chroot to /target and use it
 # directly, or use the apt-install and in-target commands to easily install
 # packages and run commands in the target system.
-d-i preseed/late_command string mkdir -p /root/.ssh; wget http://dfekt.no/k/mbp -O -  >> /root/.ssh/authorized_keys; wget http://dfekt.no/k/imac -O -  >> /root/.ssh/authorized_keys
+d-i preseed/late_command string mkdir -p /root/.ssh; wget http://dfekt.no/k/mbp -O -  >> /target/root/.ssh/authorized_keys; wget http://dfekt.no/k/imac -O -  >> /target/root/.ssh/authorized_keys
 
