@@ -1,4 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+'''
+File: ddns.py
+Author: Kristoffer Dalby
+Description: This script uses the digitalocean v1 api to update a given domain with IP.
+'''
 """ 
 Requierments:
 requests

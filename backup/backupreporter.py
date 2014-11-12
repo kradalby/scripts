@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
+'''
+File: backupreporter.py
+Author: Kristoffer Dalby
+Description: Backupreporter creates a semi-pretty report of the latest added files and the status of the disks.
+'''
 import datetime, os
 
 PATH = "/storage/backup"
