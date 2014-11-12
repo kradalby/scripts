@@ -116,17 +116,17 @@ d-i mirror/http/proxy string
 d-i passwd/make-user boolean false
 
 # Root password, either in clear text
-#d-i passwd/root-password password r00tme
-#d-i passwd/root-password-again password r00tme
+d-i passwd/root-password password derp
+d-i passwd/root-password-again password derp
 # or encrypted using an MD5 hash.
 #d-i passwd/root-password-crypted password [MD5 hash]
 
 # To create a normal user account.
-#d-i passwd/user-fullname string Debian User
-#d-i passwd/username string debian
+d-i passwd/user-fullname string Kristoffer Dalby
+d-i passwd/username string kradalby
 # Normal user's password, either in clear text
-#d-i passwd/user-password password insecure
-#d-i passwd/user-password-again password insecure
+d-i passwd/user-password password derp
+d-i passwd/user-password-again password derp
 # or encrypted using an MD5 hash.
 #d-i passwd/user-password-crypted password [MD5 hash]
 # Create the first user with the specified UID instead of the default.
@@ -383,5 +383,5 @@ d-i finish-install/reboot_in_progress note
 # still a usable /target directory. You can chroot to /target and use it
 # directly, or use the apt-install and in-target commands to easily install
 # packages and run commands in the target system.
-#d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh
+d-i preseed/late_command string mkdir -p /target/root/.ssh; wget http://dfekt.no/k/mbp -O -  >> /target/root/.ssh/authorized_keys; wget http://dfekt.no/k/imac -O -  >> /target/root/.ssh/authorized_keys
 
