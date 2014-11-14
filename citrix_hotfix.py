@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+'''
+File: citrix_hotfix.py
+Author: Kristoffer Dalby
+Description: Script to download hotfixes from citrix website, takes the citrix hostfix article as argument
+'''
 """
 Requirements:
 beautifulsoup4==4.3.2

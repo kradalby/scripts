@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+'''
+File: image_sort.py
+Author: Kristoffer Dalby
+Description: Sortes images based on datetime EXIF date.
+'''
+
 import Image
 from ExifTags import TAGS
 import datetime
