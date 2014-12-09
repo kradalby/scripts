@@ -11,7 +11,7 @@
 # Save and add a shortcut to it under System Preferences > Keyboard > Shortcuts
 
 url=https://kradalby.no/ss/
-filename=ss_`date '+%Y%m%d%H%M%S'`.png
+filename=`date '+%Y%m%d%H%M%S'`.png
 path=~/Pictures/ss/
 mkdir -p $path
 screencapture -o -i $path$filename
