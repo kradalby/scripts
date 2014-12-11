@@ -42,7 +42,24 @@ d-i partman/mount_style select uuid
 d-i base-installer/install-recommends boolean false
 d-i base-installer/kernel/image string linux-image-amd64
 tasksel tasksel/first multiselect standard, ssh-server
-grub-installer  grub-installer/bootdev  string  /dev/xvda
+d-i grub-installer  grub-installer/bootdev  string  /dev/xvda
+# grub-installer  grub-installer/password-mismatch    error
+# grub-installer  grub-installer/skip boolean false
+# grub-installer  grub-installer/bootdev  string  /dev/xvda
+# grub-installer  grub-installer/choose_bootdev   select  manual
+# grub-installer  grub-installer/apt-install-failed   error
+# grub-installer  grub-installer/grub_not_mature_on_this_platform boolean false
+# grub-installer  grub-installer/multipath-error  error
+# grub-installer  grub-installer/sataraid-error   error
+# grub-installer  grub-installer/only_debian  boolean true
+# grub-installer  grub-installer/multipath    boolean true
+# grub-installer  grub-installer/update-grub-failed   error
+# grub-installer  grub-installer/mounterr error
+# grub-installer  grub-installer/grub2_instead_of_grub_legacy boolean true
+# grub-installer  grub-installer/sataraid boolean true
+# grub-installer  grub-installer/with_other_os    boolean true
+# grub-installer  grub-installer/grub-install-failed  error
+# grub-installer  grub-installer/make_active  boolean true
 d-i pkgsel/include string curl vim
 d-i finish-install/reboot_in_progress note
 d-i preseed/late_command string mkdir -p /target/root/.ssh; wget http://nontls.kradalby.no/k/mbp -O -  >> /target/root/.ssh/authorized_keys; wget http://nontls.kradalby.no/k/imac -O -  >> /target/root/.ssh/authorized_keys
