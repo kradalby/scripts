@@ -39,11 +39,13 @@ d-i partman/choose_partition select finish
 d-i partman/confirm boolean true
 d-i partman/confirm_nooverwrite boolean true
 d-i partman/mount_style select uuid
+d-i grub-installer  grub-installer/choose_bootdev   select  auto
 d-i grub-installer  grub-installer/bootdev  string  /dev/xvda
+d-i grub-installer/only_debian boolean false
+d-i grub-installer/with_other_os boolean false
 # grub-installer  grub-installer/password-mismatch    error
 # grub-installer  grub-installer/skip boolean false
 # grub-installer  grub-installer/bootdev  string  /dev/xvda
-# grub-installer  grub-installer/choose_bootdev   select  manual
 # grub-installer  grub-installer/apt-install-failed   error
 # grub-installer  grub-installer/grub_not_mature_on_this_platform boolean false
 # grub-installer  grub-installer/multipath-error  error
