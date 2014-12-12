@@ -39,8 +39,8 @@ d-i partman/choose_partition select finish
 d-i partman/confirm boolean true
 d-i partman/confirm_nooverwrite boolean true
 d-i partman/mount_style select uuid
-d-i grub-installer  grub-installer/choose_bootdev   select  auto
-d-i grub-installer  grub-installer/bootdev  string  /dev/xvda
+d-i grub-installer/bootdev string
+d-i grub-installer/choose_bootdev   select /dev/xvda
 d-i grub-installer/only_debian boolean false
 d-i grub-installer/with_other_os boolean false
 # grub-installer  grub-installer/password-mismatch    error
