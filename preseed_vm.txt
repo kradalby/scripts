@@ -50,3 +50,4 @@ tasksel tasksel/first multiselect standard, ssh-server
 d-i pkgsel/include string curl vim
 d-i finish-install/reboot_in_progress note
 d-i preseed/late_command string mkdir -p /target/root/.ssh; wget http://nontls.kradalby.no/k/mbp -O -  >> /target/root/.ssh/authorized_keys; wget http://nontls.kradalby.no/k/imac -O -  >> /target/root/.ssh/authorized_keys
+d-i cdrom-detect/eject boolean false
