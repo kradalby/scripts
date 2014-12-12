@@ -1,4 +1,4 @@
-d-i debian-installer/locale string en_US
+#d-i debian-installer/locale string en_US
 d-i debian-installer/language string en
 d-i debian-installer/country string NO
 d-i debian-installer/locale string en_US.UTF-8
@@ -13,7 +13,8 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.no.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
-d-i passwd/make-user boolean false
+d-i passwd/make-user boolean true
+d-i passwd/root-login boolean true
 d-i passwd/root-password password derp
 d-i passwd/root-password-again password derp
 d-i passwd/user-fullname string Kristoffer Dalby
@@ -40,27 +41,11 @@ d-i partman/confirm boolean true
 d-i partman/confirm_nooverwrite boolean true
 d-i partman/mount_style select uuid
 d-i grub-installer/only_debian boolean true
-# d-i grub-installer/with_other_os boolean false
 d-i grub-installer/bootdev string
 d-i grub-installer/choose_bootdev   select /dev/xvda
-# grub-installer  grub-installer/password-mismatch    error
-# grub-installer  grub-installer/skip boolean false
-# grub-installer  grub-installer/bootdev  string  /dev/xvda
-# grub-installer  grub-installer/apt-install-failed   error
-# grub-installer  grub-installer/grub_not_mature_on_this_platform boolean false
-# grub-installer  grub-installer/multipath-error  error
-# grub-installer  grub-installer/sataraid-error   error
-# grub-installer  grub-installer/only_debian  boolean true
-# grub-installer  grub-installer/multipath    boolean true
-# grub-installer  grub-installer/update-grub-failed   error
-# grub-installer  grub-installer/mounterr error
-# grub-installer  grub-installer/grub2_instead_of_grub_legacy boolean true
-# grub-installer  grub-installer/sataraid boolean true
-# grub-installer  grub-installer/with_other_os    boolean true
-# grub-installer  grub-installer/grub-install-failed  error
-# grub-installer  grub-installer/make_active  boolean true
 d-i base-installer/install-recommends boolean false
 d-i base-installer/kernel/image string linux-image-amd64
+popularity-contest popularity-contest/participate boolean false
 tasksel tasksel/first multiselect standard, ssh-server
 d-i pkgsel/include string curl vim
 d-i finish-install/reboot_in_progress note
