@@ -33,6 +33,12 @@ func checkErr(err error, msg string) {
 func getComicPage(url string) *html.Node {
     resp, err := http.Get(url)
 
+    log.Println("Error: ", err)
+    log.Println("Response: ", resp)
+    //if resp.StatusCode != 200 {
+    //    log.Fatal(err, "Failed to fetch webpage")
+    //}
+
     //checkErr(err, "Failed to fetch url: " + url)
 
     parsedHtml, err := html.Parse(resp.Body)
@@ -63,7 +69,13 @@ func getDagbladetStripeUrl(n *html.Node, name string) string {
 }
 
 func downloadStrip(url string) []byte {
-    resp, _ := http.Get(url)
+    resp, err := http.Get(url)
+
+    log.Println("Error: ", err)
+    log.Println("Response: ", resp)
+    //if resp.StatusCode != 200 {
+    //    log.Fatal(err, "Failed to fetch webpage")
+    //}
 
     data, err := ioutil.ReadAll(resp.Body)
     checkErr(err, "Download failed")
