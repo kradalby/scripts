@@ -33,7 +33,7 @@ func checkErr(err error, msg string) {
 func getComicPage(url string) *html.Node {
     resp, err := http.Get(url)
 
-    checkErr(err, "Failed to fetch url: " + url)
+    //checkErr(err, "Failed to fetch url: " + url)
 
     parsedHtml, err := html.Parse(resp.Body)
     checkErr(err, "Failed to parse html")
@@ -79,5 +79,5 @@ func saveStrip(name string, data []byte) {
     err := ioutil.WriteFile(fileName, data, 0755)
     checkErr(err, "IO write file failed")
 
-    log.Println("%s saved successfully", fileName)
+    log.Printf("%s saved successfully\n", fileName)
 }
