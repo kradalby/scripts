@@ -5,22 +5,17 @@ import (
 //    "fmt"
     "log"
     "time"
-
     "io/ioutil"
     "golang.org/x/net/html"
+    "os"
 )
 
 func main() {
     dagbladetStriper := []string{"lunch", "pondus", "zelda", "nemi"}
+    path := os.Args[1]
 
     for _, c := range dagbladetStriper {
-        page := getComicPage("http://www.dagbladet.no/tegneserie/" + c + "/")
-
-        img := getDagbladetStripeUrl(page, c)
-        log.Println(img)
-        data := downloadStrip(img)
-
-        saveStrip(c, data)
+        dagbladet(path, c)
     }
 }
 
@@ -30,16 +25,22 @@ func checkErr(err error, msg string) {
     }
 }
 
+func dagbladet(path, name string) {
+    page := getComicPage("http://www.dagbladet.no/tegneserie/" + name + "/")
+
+    img := getDagbladetStripeUrl(page, name)
+    data := downloadStrip(img)
+
+    saveStrip(path, name, data)
+}
+
 func getComicPage(url string) *html.Node {
-    resp, err := http.Get(url)
+    client := &http.Client{}
+    req , err := http.NewRequest("GET", url, nil)
 
-    log.Println("Error: ", err)
-    log.Println("Response: ", resp)
-    //if resp.StatusCode != 200 {
-    //    log.Fatal(err, "Failed to fetch webpage")
-    //}
+    req.Close = true
 
-    //checkErr(err, "Failed to fetch url: " + url)
+    resp, err := client.Do(req)
 
     parsedHtml, err := html.Parse(resp.Body)
     checkErr(err, "Failed to parse html")
@@ -69,13 +70,12 @@ func getDagbladetStripeUrl(n *html.Node, name string) string {
 }
 
 func downloadStrip(url string) []byte {
-    resp, err := http.Get(url)
+    client := &http.Client{}
+    req , err := http.NewRequest("GET", url, nil)
 
-    log.Println("Error: ", err)
-    log.Println("Response: ", resp)
-    //if resp.StatusCode != 200 {
-    //    log.Fatal(err, "Failed to fetch webpage")
-    //}
+    req.Close = true
+
+    resp, err := client.Do(req)
 
     data, err := ioutil.ReadAll(resp.Body)
     checkErr(err, "Download failed")
@@ -84,11 +84,11 @@ func downloadStrip(url string) []byte {
     return data
 }
 
-func saveStrip(name string, data []byte) {
+func saveStrip(path, name string, data []byte) {
     now := time.Now().Format("2006-Jan-02")
     fileName := name + "_" + now + ".png"
 
-    err := ioutil.WriteFile(fileName, data, 0755)
+    err := ioutil.WriteFile(path + "/" + fileName, data, 0755)
     checkErr(err, "IO write file failed")
 
     log.Printf("%s saved successfully\n", fileName)
