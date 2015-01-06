@@ -16,6 +16,7 @@ func main() {
 
     for _, c := range dagbladetStriper {
         dagbladet(path, c)
+        time.Sleep(4)
     }
 }
 
