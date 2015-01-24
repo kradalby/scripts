@@ -12,5 +12,11 @@
 
 url=https://kradalby.no/pb/
 filename=`date '+%Y%m%d%H%M%S'`.txt
-echo $1 | ssh onyx "cat > /srv/www/kradalby.no/pb/$filename"
+
+for f in "$@"
+do
+    echo $f + "\n" >> ~/derp8
+done
+
+echo $@ | /usr/local/bin/ssh onyx "cat > /srv/www/kradalby.no/pb/$filename"
 printf $url$filename | pbcopy

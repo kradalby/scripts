@@ -15,7 +15,7 @@ filename=`date '+%Y%m%d%H%M%S'`.png
 path=~/Pictures/ss/
 mkdir -p $path
 screencapture -o -i $path$filename
-eval "scp -v $path$filename onyx:/srv/www/kradalby.no/ss/"
+/usr/local/bin/scp -v $path$filename onyx:/srv/www/kradalby.no/ss/
 derp=!$
 echo=$derp
 printf $url$filename | pbcopy
