@@ -42,7 +42,9 @@ func getComicPage(url string) *html.Node {
     req.Close = true
 
     resp, err := client.Do(req)
-    checkErr(err, "Request failed")
+    if err != nil {
+        resp, err = client.Do(req)
+    }
 
     parsedHtml, err := html.Parse(resp.Body)
     checkErr(err, "Failed to parse html")
