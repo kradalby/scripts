@@ -13,7 +13,7 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.no.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
-#d-i passwd/make-user boolean true
+d-i passwd/make-user boolean false
 d-i passwd/root-login boolean true
 #d-i passwd/root-password password derp
 #d-i passwd/root-password-again password derp
