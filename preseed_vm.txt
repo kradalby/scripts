@@ -13,14 +13,14 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.no.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
-d-i passwd/make-user boolean true
+#d-i passwd/make-user boolean true
 d-i passwd/root-login boolean true
-d-i passwd/root-password password derp
-d-i passwd/root-password-again password derp
-d-i passwd/user-fullname string Kristoffer Dalby
-d-i passwd/username string kradalby
-d-i passwd/user-password password derp
-d-i passwd/user-password-again password derp
+#d-i passwd/root-password password derp
+#d-i passwd/root-password-again password derp
+#d-i passwd/user-fullname string Kristoffer Dalby
+#d-i passwd/username string kradalby
+#d-i passwd/user-password password derp
+#d-i passwd/user-password-again password derp
 d-i clock-setup/utc boolean true
 d-i time/zone string Europe/Oslo
 d-i clock-setup/ntp boolean true
