@@ -1,14 +1,3 @@
-#!/bin/bash
-
-# This script is written for personal use,
-# it is mainly for bootstrapping a server
-# with the utilites that i use and want
-# on a newly installed Debian linux server.
-
-# Usage:
-# curl -k https://kradalby.no/bs.sh | bash
-
-
 function update() {
     echo "Updating repositories and OS"
     apt-get update
@@ -41,7 +30,7 @@ function install_packages() {
         tmux vim-nox python python3 git \
         htop zsh python-dev python-setuptools \
         ntp tree ncdu ack-grep ssh mosh fail2ban \
-        cu postfix lldpd lm-sensors apticron
+        cu lldpd
 }
 
 #function install_ohzsh() {
@@ -89,13 +78,7 @@ function configure_sensors() {
     /etc/init.d/kmod start
 }
 
-change_repos
-add_repos "$(lsb_release -cs)"
 update
 install_packages
-install_dotfiles
-create_motd
-root_mail_recipiant
-configure_sensors
 install_prezto
-
+install_dotfiles
