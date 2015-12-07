@@ -25,7 +25,10 @@ def get_all_files(path):
 
 
 def get_modified_time(path):
-    return datetime.datetime.fromtimestamp(os.path.getmtime(path))
+    try:
+        return datetime.datetime.fromtimestamp(os.path.getmtime(path))
+    except:
+        return datetime.datetime.fromtimestamp(0)
 
 def get_mb_file_size(path):
     return float(os.path.getsize(path)/1048576)
