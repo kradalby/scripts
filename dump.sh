@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 url=https://kradalby.no/dump/
 path=$1

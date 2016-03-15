@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script is for reloading the sounddrivers on my macbook pro
 

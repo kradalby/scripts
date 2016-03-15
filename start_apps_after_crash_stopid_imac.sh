@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 APPS="Safari iTerm Mail Messages Messenger Skype Slack Spotify Transmission"
 

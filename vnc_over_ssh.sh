@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Force ssh into background
 eval "ssh kradalby@192.168.1.148 -L 6000:localhost:6000 -N &"
